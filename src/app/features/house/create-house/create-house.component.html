@@ -1,0 +1,13 @@
+<div class="create-house-form">
+  <h2>Create a New House</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>House Name</mat-label>
+    <input matInput [(ngModel)]="houseName" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="createHouse()">Create House</button>
+
+  <div *ngIf="successMsg" style="color:green">{{ successMsg }}</div>
+  <div *ngIf="errorMsg" style="color:red">{{ errorMsg }}</div>
+</div>

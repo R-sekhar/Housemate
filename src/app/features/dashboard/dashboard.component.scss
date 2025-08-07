@@ -1,0 +1,39 @@
+h2, h3 {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 10px;
+  color: #3f51b5;
+}
+
+.dashboard-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.dashboard-links button {
+  min-width: 180px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+.dashboard-links button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .dashboard-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-links button {
+    width: 80%;
+  }
+}

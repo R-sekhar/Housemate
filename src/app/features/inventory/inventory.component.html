@@ -1,0 +1,26 @@
+<div class="inventory">
+  <h2>Inventory</h2>
+
+  <form (ngSubmit)="addItem()">
+    <mat-form-field>
+      <mat-label>Item Name</mat-label>
+      <input matInput [(ngModel)]="newItemName" name="itemName" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Quantity</mat-label>
+      <input matInput [(ngModel)]="newItemQty" name="itemQty" type="number" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add Item</button>
+  </form>
+
+  <ul>
+  <li *ngFor="let item of inventory">
+    {{ item.name }} ({{ item.quantity }})
+    <button (click)="deleteItem(item.id)">Delete</button>
+  </li>
+</ul>
+<p>Total Items: {{ inventory.length }}</p>
+
+</div>

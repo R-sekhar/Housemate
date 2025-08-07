@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span> Housemate </span>
+  <span class="spacer"></span>
+
+  <ng-container *ngIf="isLoggedIn; else loggedOut">
+    <button mat-button routerLink="/">Dashboard</button>
+    <button mat-button routerLink="/inventory">Inventory</button>
+    <button mat-button routerLink="/expenses">Expenses</button>
+    <button mat-button routerLink="/create-house">Create House</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/signup">Sign Up</button>
+  </ng-template>
+</mat-toolbar>

@@ -1,0 +1,26 @@
+<div class="expense-form">
+  <h2>Add Expense</h2>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="description" name="description" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input matInput [(ngModel)]="amount" name="amount" type="number" />
+  </mat-form-field>
+
+  <input type="file" (change)="onFileSelected($event)" />
+
+  <button mat-raised-button color="primary" (click)="addExpense()">
+    Submit
+  </button>
+
+  <div *ngIf="successMsg" style="color: green">{{ successMsg }}</div>
+</div>
+
+<div *ngFor="let item of expenses" class="expense-item mat-elevation-z2">
+  <div>{{ item.name }}</div>
+  <div>{{ item.amount | currency }}</div>
+</div>
