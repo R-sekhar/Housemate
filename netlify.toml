@@ -1,0 +1,4 @@
+[build]
+  command = "ng build --configuration production"
+  publish = "dist/housemate"
+  environment = { NODE_VERSION = "18" }
