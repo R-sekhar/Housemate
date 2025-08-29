@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SupabaseService } from 'src/app/core/supabase.service';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,18 +8,23 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email = '';
-  password = '';
-  errorMsg = '';
+  email: string = '';
+  password: string = '';
+  errorMsg: string = '';
 
   constructor(private supabase: SupabaseService, private router: Router) {}
 
   async login() {
-    const { error } = await this.supabase.signIn(this.email, this.password);
+    const { user, error } = await this.supabase.signIn(this.email, this.password);
+
     if (error) {
       this.errorMsg = error.message;
-    } else {
-      this.router.navigate(['/']);
+    } else if (user) {
+      // ✅ First go to home
+      await this.router.navigate(['/']);
+
+      // ✅ Then refresh the page
+      window.location.reload();
     }
   }
 }
